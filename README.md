@@ -31,19 +31,18 @@ $ composer require type-lang/phpdoc-standard-tags
 
 Adds support for the following tags:
 
-- [ ] [`@param`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/param.html)
+- [x] [`@param`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/param.html) — `TypeLang\PHPDoc\Standard\ParamTagFactory`
 - [ ] [`@property`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/property.html)
 - [ ] [`@property-read`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/property-read.html)
 - [ ] [`@property-write`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/property-write.html)
 - [ ] [`@return`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/return.html)
 - [ ] [`@throws`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/throws.html)
-- [x] [`@var`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/var.html)
-  - `TypeLang\PHPDoc\Standard\VarTagFactory`.
+- [x] [`@var`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/var.html) — `TypeLang\PHPDoc\Standard\VarTagFactory`
 
 ## Usage
 
 ```php
-$tags = new TypeLang\PHPDoc\Tag\TagFactory();
+$tags = new \TypeLang\PHPDoc\Tag\Factory\TagFactory();
 
 // Add support of "@var" tag.
 $tags->register('var', new TypeLang\PHPDoc\Standard\VarTagFactory());
