@@ -26,6 +26,14 @@ final class StandardTagLexer
         $this->original = $this->content;
     }
 
+    /**
+     * @param non-empty-string $needle
+     */
+    public function startsWith(string $needle): bool
+    {
+        return \str_starts_with($this->content, $needle);
+    }
+
     public static function new(string $content): self
     {
         return new self($content);

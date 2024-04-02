@@ -23,7 +23,12 @@ final class ParamTagFactory implements FactoryInterface
     {
         $content = StandardTagLexer::new($content);
 
-        $type = $content->nextType($name, $this->parser);
+        $type = null;
+
+        if (!$content->startsWith('$')) {
+            $type = $content->nextType($name, $this->parser);
+        }
+
         $variable = $content->nextVariable($name);
 
         return new ParamTag(

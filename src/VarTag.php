@@ -6,9 +6,12 @@ namespace TypeLang\PHPDoc\Standard;
 
 use TypeLang\Parser\Node\Stmt\TypeStatement;
 use TypeLang\PHPDoc\Tag\OptionalVariableNameProviderInterface;
-use TypeLang\PHPDoc\Tag\TypedTag;
+use TypeLang\PHPDoc\Tag\Tag;
+use TypeLang\PHPDoc\Tag\TypeProviderInterface;
 
-class VarTag extends TypedTag implements OptionalVariableNameProviderInterface
+class VarTag extends Tag implements
+    TypeProviderInterface,
+    OptionalVariableNameProviderInterface
 {
     /**
      * @param non-empty-string $name
@@ -16,11 +19,16 @@ class VarTag extends TypedTag implements OptionalVariableNameProviderInterface
      */
     public function __construct(
         string $name,
-        TypeStatement $type,
+        protected readonly TypeStatement $type,
         protected readonly ?string $variable = null,
         \Stringable|string|null $description = null
     ) {
-        parent::__construct($name, $type, $description);
+        parent::__construct($name, $description);
+    }
+
+    public function getType(): TypeStatement
+    {
+        return $this->type;
     }
 
     public function getVariable(): ?string
