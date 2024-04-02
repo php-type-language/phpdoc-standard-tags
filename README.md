@@ -32,11 +32,11 @@ $ composer require type-lang/phpdoc-standard-tags
 Adds support for the following tags:
 
 - [x] [`@param`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/param.html) — `TypeLang\PHPDoc\Standard\ParamTagFactory`
-- [ ] [`@property`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/property.html)
-- [ ] [`@property-read`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/property-read.html)
-- [ ] [`@property-write`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/property-write.html)
-- [ ] [`@return`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/return.html)
-- [ ] [`@throws`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/throws.html)
+- [x] [`@property`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/property.html) — `TypeLang\PHPDoc\Standard\PropertyTagFactory`
+- [x] [`@property-read`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/property-read.html) — `TypeLang\PHPDoc\Standard\PropertyReadTagFactory`
+- [x] [`@property-write`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/property-write.html) — `TypeLang\PHPDoc\Standard\PropertyWriteTagFactory`
+- [x] [`@return`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/return.html) — `TypeLang\PHPDoc\Standard\ReturnTagFactory`
+- [x] [`@throws`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/throws.html) — `TypeLang\PHPDoc\Standard\ThrowsTagFactory`
 - [x] [`@var`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/var.html) — `TypeLang\PHPDoc\Standard\VarTagFactory`
 
 ## Usage
@@ -44,7 +44,13 @@ Adds support for the following tags:
 ```php
 $tags = new \TypeLang\PHPDoc\Tag\Factory\TagFactory();
 
-// Add support of "@var" tag.
+// Add support of standard tags
+$tags->register('param', new TypeLang\PHPDoc\Standard\ParamTagFactory());
+$tags->register('property', new TypeLang\PHPDoc\Standard\PropertyTagFactory());
+$tags->register('property-read', new TypeLang\PHPDoc\Standard\PropertyReadTagFactory());
+$tags->register('property-write', new TypeLang\PHPDoc\Standard\PropertyWriteTagFactory());
+$tags->register('return', new TypeLang\PHPDoc\Standard\ReturnTagFactory());
+$tags->register('throws', new TypeLang\PHPDoc\Standard\ThrowsTagFactory());
 $tags->register('var', new TypeLang\PHPDoc\Standard\VarTagFactory());
 
 $parser = new TypeLang\PHPDoc\Parser($tags);

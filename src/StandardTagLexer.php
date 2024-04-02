@@ -11,6 +11,10 @@ use TypeLang\PHPDoc\Exception\InvalidTagException;
 use TypeLang\PHPDoc\Parser\Description\DescriptionParserInterface;
 use TypeLang\PHPDoc\Tag\DescriptionInterface;
 
+/**
+ * @internal This is an internal library class, please do not use it in your code.
+ * @psalm-internal TypeLang\PHPDoc\Standard
+ */
 final class StandardTagLexer
 {
     private readonly string $original;
