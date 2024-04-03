@@ -36,9 +36,9 @@ use TypeLang\PHPDoc\Tag\TypeProviderInterface;
  * with a class or interface.
  *
  * ```
- * @method [static] <CallableType> [<description>]
- * @method [static] <ReturnType> <CallableType> [<description>]
- * @method [static] <CallableType>: <ReturnType> [<description>]
+ * * @method [static] <CallableType> [<description>]
+ * * @method [static] <ReturnType> <CallableType> [<description>]
+ * * @method [static] <CallableType>: <ReturnType> [<description>]
  * ```
  */
 class MethodTag extends Tag implements TypeProviderInterface

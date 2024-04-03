@@ -30,7 +30,7 @@ use TypeLang\PHPDoc\Tag\TypeProviderInterface;
  * structural elements of type method or function.
  *
  * ```
- * @return [<Type>] [<description>]
+ * * @return [<Type>] [<description>]
  * ```
  */
 class ReturnTag extends Tag implements TypeProviderInterface
