@@ -12,7 +12,7 @@ use TypeLang\PHPDoc\Tag\Content;
  *
  * See {@see PropertyWriteTag} for details about this tag.
  */
-class PropertyWriteTagFactory extends PropertyTagFactory
+final class PropertyWriteTagFactory extends PropertyTagFactory
 {
     public function create(string $name, Content $content, DescriptionParserInterface $descriptions): PropertyWriteTag
     {
