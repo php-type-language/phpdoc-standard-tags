@@ -13,11 +13,7 @@ use TypeLang\PHPDoc\Tag\Content;
 class PropertyTagFactory implements FactoryInterface
 {
     public function __construct(
-        private readonly TypesParserInterface $parser = new TypesParser(
-            tolerant: true,
-            conditional: false,
-            callables: false,
-        ),
+        private readonly TypesParserInterface $parser = new TypesParser(tolerant: true),
     ) {}
 
     public function create(string $name, Content $content, DescriptionParserInterface $descriptions): PropertyTag

@@ -15,8 +15,9 @@ final class ThrowsTagFactory implements FactoryInterface
     public function __construct(
         private readonly TypesParserInterface $parser = new TypesParser(
             tolerant: true,
-            conditional: false,
+            shapes: false,
             callables: false,
+            literals: false,
         ),
     ) {}
 
