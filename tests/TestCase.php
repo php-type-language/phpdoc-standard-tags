@@ -7,5 +7,5 @@ namespace TypeLang\PHPDoc\Standard\Tests;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
-#[Group('type-lang/phpdoc')]
+#[Group('type-lang/phpdoc-standard-tags')]
 abstract class TestCase extends BaseTestCase {}

@@ -32,8 +32,6 @@ $ composer require type-lang/phpdoc-standard-tags
 Adds support for basic annotations containing descriptions of types 
 that affect their output in static analyzers.
 
-### Basic Tags
-
 - [x] [`@method`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/method.html) — `TypeLang\PHPDoc\Standard\MethodTagFactory`
 - [x] [`@param`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/param.html) — `TypeLang\PHPDoc\Standard\ParamTagFactory`
 - [x] [`@property`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/property.html) — `TypeLang\PHPDoc\Standard\PropertyTagFactory`
@@ -42,15 +40,6 @@ that affect their output in static analyzers.
 - [x] [`@return`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/return.html) — `TypeLang\PHPDoc\Standard\ReturnTagFactory`
 - [x] [`@throws`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/throws.html) — `TypeLang\PHPDoc\Standard\ThrowsTagFactory`
 - [x] [`@var`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/var.html) — `TypeLang\PHPDoc\Standard\VarTagFactory`
-
-### Advanced Tags
-
-- [ ] `@import-type`
-- [ ] `@template-extends` (or `@extends`)
-- [ ] `@template-implements` (or `@implements`)
-- [ ] `@template`
-- [ ] `@type`
-- [ ] `@use`
 
 ## Usage
 

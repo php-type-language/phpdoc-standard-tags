@@ -21,7 +21,7 @@ final class PropertyWriteTagFactory extends PropertyTagFactory
         return new PropertyWriteTag(
             name: $property->getName(),
             type: $property->getType(),
-            variable: $property->getVariable(),
+            variable: $property->getVariableName(),
             description: $property->getDescription(),
         );
     }

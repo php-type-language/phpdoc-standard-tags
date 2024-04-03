@@ -34,7 +34,7 @@ final class ParamTagFactory implements FactoryInterface
         return new ParamTag(
             name: $name,
             type: $type,
-            variable: $variable,
+            varName: $variable,
             description: $content->toDescription($descriptions),
         );
     }

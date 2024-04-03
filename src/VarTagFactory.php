@@ -29,7 +29,7 @@ final class VarTagFactory implements FactoryInterface
         return new VarTag(
             name: $name,
             type: $type,
-            variable: $variable,
+            varName: $variable,
             description: $content->toDescription($descriptions),
         );
     }

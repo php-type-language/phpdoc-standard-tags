@@ -28,7 +28,7 @@ use TypeLang\PHPDoc\Tag\VariableNameProviderInterface;
  * limited to structural elements of type method or function.
  *
  * ```
- * @param [<Type>] [name] [<description>]
+ * @param [<Type>] $<name> [<description>]
  * ```
  */
 class ParamTag extends Tag implements
@@ -37,12 +37,12 @@ class ParamTag extends Tag implements
 {
     /**
      * @param non-empty-string $name
-     * @param non-empty-string $variable
+     * @param non-empty-string $varName
      */
     public function __construct(
         string $name,
         protected readonly ?TypeStatement $type,
-        protected readonly string $variable,
+        protected readonly string $varName,
         \Stringable|string|null $description = null
     ) {
         parent::__construct($name, $description);
@@ -53,8 +53,8 @@ class ParamTag extends Tag implements
         return $this->type;
     }
 
-    public function getVariable(): string
+    public function getVariableName(): string
     {
-        return $this->variable;
+        return $this->varName;
     }
 }

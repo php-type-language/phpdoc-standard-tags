@@ -7,7 +7,6 @@ namespace TypeLang\PHPDoc\Standard;
 use TypeLang\Parser\Node\Stmt\Callable\ParameterNode;
 use TypeLang\Parser\Node\Stmt\CallableTypeNode;
 use TypeLang\Parser\Node\Stmt\TypeStatement;
-use TypeLang\PHPDoc\Tag\OptionalVariableNameProviderInterface;
 use TypeLang\PHPDoc\Tag\Tag;
 use TypeLang\PHPDoc\Tag\TypeProviderInterface;
 
@@ -37,7 +36,9 @@ use TypeLang\PHPDoc\Tag\TypeProviderInterface;
  * with a class or interface.
  *
  * ```
- * @method [[static] return type] [name]([[type] [parameter]<, ...>]) [<description>]
+ * @method [static] <CallableType> [<description>]
+ * @method [static] <ReturnType> <CallableType> [<description>]
+ * @method [static] <CallableType>: <ReturnType> [<description>]
  * ```
  */
 class MethodTag extends Tag implements TypeProviderInterface

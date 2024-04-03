@@ -35,7 +35,7 @@ use TypeLang\PHPDoc\Tag\VariableNameProviderInterface;
  * - Also @see PropertyWrite for "`@property-write`" tag implementation.
  *
  * ```
- * @property[<-read|-write>] [Type] [name] [<description>]
+ * @property[<-read|-write>] [<Type>] $<name> [<description>]
  * ```
  */
 class PropertyTag extends Tag implements
@@ -60,7 +60,7 @@ class PropertyTag extends Tag implements
         return $this->type;
     }
 
-    public function getVariable(): string
+    public function getVariableName(): string
     {
         return $this->variable;
     }

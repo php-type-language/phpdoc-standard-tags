@@ -21,7 +21,7 @@ final class PropertyReadTagFactory extends PropertyTagFactory
         return new PropertyReadTag(
             name: $property->getName(),
             type: $property->getType(),
-            variable: $property->getVariable(),
+            variable: $property->getVariableName(),
             description: $property->getDescription(),
         );
     }

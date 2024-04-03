@@ -26,7 +26,7 @@ use TypeLang\PHPDoc\Tag\TypeProviderInterface;
  * while several items are represented.
  *
  * ```
- * @var ['Type'] [element_name] [<description>]
+ * @var [<Type>] $<name> [<description>]
  * ```
  */
 class VarTag extends Tag implements
@@ -35,12 +35,12 @@ class VarTag extends Tag implements
 {
     /**
      * @param non-empty-string $name
-     * @param non-empty-string|null $variable
+     * @param non-empty-string|null $varName
      */
     public function __construct(
         string $name,
         protected readonly TypeStatement $type,
-        protected readonly ?string $variable = null,
+        protected readonly ?string $varName = null,
         \Stringable|string|null $description = null
     ) {
         parent::__construct($name, $description);
@@ -51,8 +51,8 @@ class VarTag extends Tag implements
         return $this->type;
     }
 
-    public function getVariable(): ?string
+    public function getVariableName(): ?string
     {
-        return $this->variable;
+        return $this->varName;
     }
 }
