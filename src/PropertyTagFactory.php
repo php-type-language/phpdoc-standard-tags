@@ -15,7 +15,7 @@ use TypeLang\PHPDoc\Tag\Content;
  *
  * See {@see PropertyTag} for details about this tag.
  */
-class PropertyTagFactory implements FactoryInterface
+final class PropertyTagFactory implements FactoryInterface
 {
     public function __construct(
         private readonly TypesParserInterface $parser = new TypesParser(tolerant: true),
