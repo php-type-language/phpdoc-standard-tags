@@ -44,24 +44,28 @@ that affect their output in static analyzers.
 ## Usage
 
 ```php
-$tags = new \TypeLang\PHPDoc\Tag\Factory\TagFactory();
+use TypeLang\PHPDoc\Parser;
+use TypeLang\PHPDoc\Standard;
+use TypeLang\PHPDoc\Tag\Factory\TagFactory;
+
+$tags = new TagFactory();
 
 // Add support of standard tags
-$tags->register('method', new TypeLang\PHPDoc\Standard\MethodTagFactory());
-$tags->register('param', new TypeLang\PHPDoc\Standard\ParamTagFactory());
-$tags->register('property', new TypeLang\PHPDoc\Standard\PropertyTagFactory());
-$tags->register('property-read', new TypeLang\PHPDoc\Standard\PropertyReadTagFactory());
-$tags->register('property-write', new TypeLang\PHPDoc\Standard\PropertyWriteTagFactory());
-$tags->register('return', new TypeLang\PHPDoc\Standard\ReturnTagFactory());
-$tags->register('throws', new TypeLang\PHPDoc\Standard\ThrowsTagFactory());
-$tags->register('var', new TypeLang\PHPDoc\Standard\VarTagFactory());
+$tags->register('method', new Standard\MethodTagFactory());
+$tags->register('param', new Standard\ParamTagFactory());
+$tags->register('property', new Standard\PropertyTagFactory());
+$tags->register('property-read', new Standard\PropertyReadTagFactory());
+$tags->register('property-write', new Standard\PropertyWriteTagFactory());
+$tags->register('return', new Standard\ReturnTagFactory());
+$tags->register('throws', new Standard\ThrowsTagFactory());
+$tags->register('var', new Standard\VarTagFactory());
 
-$parser = new TypeLang\PHPDoc\Parser($tags);
-$docblock = $parser->parse(<<<'PHPDOC'
-    /**
-     * @var string example tag.
-     */
-    PHPDOC);
+$docblock = (new Parser($tags))
+    ->parse(<<<'PHPDOC'
+        /**
+         * @var string example tag.
+         */
+        PHPDOC);
 
 var_dump($docblock);
 ```
