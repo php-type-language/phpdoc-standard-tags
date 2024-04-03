@@ -34,7 +34,7 @@ Adds support for the following tags:
 - [ ] `@extends`
 - [ ] `@import-type`
 - [ ] `@implements`
-- [ ] [`@method`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/method.html)
+- [x] [`@method`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/method.html) — `TypeLang\PHPDoc\Standard\MethodTagFactory`
 - [x] [`@param`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/param.html) — `TypeLang\PHPDoc\Standard\ParamTagFactory`
 - [x] [`@property`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/property.html) — `TypeLang\PHPDoc\Standard\PropertyTagFactory`
 - [x] [`@property-read`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/property-read.html) — `TypeLang\PHPDoc\Standard\PropertyReadTagFactory`
@@ -52,6 +52,7 @@ Adds support for the following tags:
 $tags = new \TypeLang\PHPDoc\Tag\Factory\TagFactory();
 
 // Add support of standard tags
+$tags->register('method', new TypeLang\PHPDoc\Standard\MethodTagFactory());
 $tags->register('param', new TypeLang\PHPDoc\Standard\ParamTagFactory());
 $tags->register('property', new TypeLang\PHPDoc\Standard\PropertyTagFactory());
 $tags->register('property-read', new TypeLang\PHPDoc\Standard\PropertyReadTagFactory());
