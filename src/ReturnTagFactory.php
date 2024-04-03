@@ -11,7 +11,7 @@ use TypeLang\PHPDoc\Tag\Factory\FactoryInterface;
 use TypeLang\PHPDoc\Tag\Content;
 
 /**
- * This class is responsible for creating "@return" tags.
+ * This class is responsible for creating "`@return`" tags.
  *
  * See {@see ReturnTag} for details about this tag.
  */

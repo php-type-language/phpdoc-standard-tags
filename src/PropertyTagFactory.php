@@ -11,7 +11,7 @@ use TypeLang\PHPDoc\Tag\Factory\FactoryInterface;
 use TypeLang\PHPDoc\Tag\Content;
 
 /**
- * This class is responsible for creating "@property" tags.
+ * This class is responsible for creating "`@property`" tags.
  *
  * See {@see PropertyTag} for details about this tag.
  */

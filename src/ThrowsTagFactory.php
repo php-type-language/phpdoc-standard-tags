@@ -11,7 +11,7 @@ use TypeLang\PHPDoc\Tag\Factory\FactoryInterface;
 use TypeLang\PHPDoc\Tag\Content;
 
 /**
- * This class is responsible for creating "@throws" tags.
+ * This class is responsible for creating "`@throws`" tags.
  *
  * See {@see ThrowsTag} for details about this tag.
  */

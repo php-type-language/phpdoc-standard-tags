@@ -11,7 +11,7 @@ use TypeLang\PHPDoc\Tag\Factory\FactoryInterface;
 use TypeLang\PHPDoc\Tag\Content;
 
 /**
- * This class is responsible for creating "@var" tags.
+ * This class is responsible for creating "`@var`" tags.
  *
  * See {@see VarTag} for details about this tag.
  */

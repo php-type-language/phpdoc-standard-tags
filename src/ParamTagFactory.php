@@ -11,7 +11,7 @@ use TypeLang\PHPDoc\Tag\Factory\FactoryInterface;
 use TypeLang\PHPDoc\Tag\Content;
 
 /**
- * This class is responsible for creating "@param" tags.
+ * This class is responsible for creating "`@param`" tags.
  *
  * See {@see ParamTag} for details about this tag.
  */

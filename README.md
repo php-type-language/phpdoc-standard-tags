@@ -29,22 +29,28 @@ $ composer require type-lang/phpdoc-standard-tags
 
 ## Introduction
 
-Adds support for the following tags:
+Adds support for basic annotations containing descriptions of types 
+that affect their output in static analyzers.
 
-- [ ] `@extends`
-- [ ] `@import-type`
-- [ ] `@implements`
+### Basic Tags
+
 - [x] [`@method`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/method.html) — `TypeLang\PHPDoc\Standard\MethodTagFactory`
 - [x] [`@param`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/param.html) — `TypeLang\PHPDoc\Standard\ParamTagFactory`
 - [x] [`@property`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/property.html) — `TypeLang\PHPDoc\Standard\PropertyTagFactory`
 - [x] [`@property-read`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/property-read.html) — `TypeLang\PHPDoc\Standard\PropertyReadTagFactory`
 - [x] [`@property-write`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/property-write.html) — `TypeLang\PHPDoc\Standard\PropertyWriteTagFactory`
 - [x] [`@return`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/return.html) — `TypeLang\PHPDoc\Standard\ReturnTagFactory`
-- [ ] `@template`
 - [x] [`@throws`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/throws.html) — `TypeLang\PHPDoc\Standard\ThrowsTagFactory`
+- [x] [`@var`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/var.html) — `TypeLang\PHPDoc\Standard\VarTagFactory`
+
+### Advanced Tags
+
+- [ ] `@import-type`
+- [ ] `@template-extends` (or `@extends`)
+- [ ] `@template-implements` (or `@implements`)
+- [ ] `@template`
 - [ ] `@type`
 - [ ] `@use`
-- [x] [`@var`](https://docs.phpdoc.org/3.0/guide/references/phpdoc/tags/var.html) — `TypeLang\PHPDoc\Standard\VarTagFactory`
 
 ## Usage
 

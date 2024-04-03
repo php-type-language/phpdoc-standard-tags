@@ -8,7 +8,7 @@ use TypeLang\PHPDoc\Parser\Description\DescriptionParserInterface;
 use TypeLang\PHPDoc\Tag\Content;
 
 /**
- * This class is responsible for creating "@property-write" tags.
+ * This class is responsible for creating "`@property-write`" tags.
  *
  * See {@see PropertyWriteTag} for details about this tag.
  */
