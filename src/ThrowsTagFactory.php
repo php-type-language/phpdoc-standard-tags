@@ -18,6 +18,8 @@ final class ThrowsTagFactory implements FactoryInterface
             shapes: false,
             callables: false,
             literals: false,
+            generics: false,
+            list: false,
         ),
     ) {}
 
