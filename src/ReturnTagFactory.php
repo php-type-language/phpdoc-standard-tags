@@ -8,6 +8,7 @@ use TypeLang\Parser\Parser as TypesParser;
 use TypeLang\Parser\ParserInterface as TypesParserInterface;
 use TypeLang\PHPDoc\Parser\Description\DescriptionParserInterface;
 use TypeLang\PHPDoc\Tag\Factory\FactoryInterface;
+use TypeLang\PHPDoc\Tag\Content;
 
 final class ReturnTagFactory implements FactoryInterface
 {
@@ -19,10 +20,8 @@ final class ReturnTagFactory implements FactoryInterface
         ),
     ) {}
 
-    public function create(string $name, string $content, DescriptionParserInterface $descriptions): ReturnTag
+    public function create(string $name, Content $content, DescriptionParserInterface $descriptions): ReturnTag
     {
-        $content = StandardTagLexer::new($content);
-
         return new ReturnTag(
             name: $name,
             type: $content->nextType($name, $this->parser),

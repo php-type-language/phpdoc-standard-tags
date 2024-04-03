@@ -8,6 +8,7 @@ use TypeLang\Parser\Parser as TypesParser;
 use TypeLang\Parser\ParserInterface as TypesParserInterface;
 use TypeLang\PHPDoc\Parser\Description\DescriptionParserInterface;
 use TypeLang\PHPDoc\Tag\Factory\FactoryInterface;
+use TypeLang\PHPDoc\Tag\Content;
 
 class PropertyTagFactory implements FactoryInterface
 {
@@ -19,13 +20,11 @@ class PropertyTagFactory implements FactoryInterface
         ),
     ) {}
 
-    public function create(string $name, string $content, DescriptionParserInterface $descriptions): PropertyTag
+    public function create(string $name, Content $content, DescriptionParserInterface $descriptions): PropertyTag
     {
-        $content = StandardTagLexer::new($content);
-
         $type = null;
 
-        if (!$content->startsWith('$')) {
+        if (!\str_starts_with($content->value, '$')) {
             $type = $content->nextType($name, $this->parser);
         }
 

@@ -8,6 +8,7 @@ use TypeLang\Parser\Parser as TypesParser;
 use TypeLang\Parser\ParserInterface as TypesParserInterface;
 use TypeLang\PHPDoc\Parser\Description\DescriptionParserInterface;
 use TypeLang\PHPDoc\Tag\Factory\FactoryInterface;
+use TypeLang\PHPDoc\Tag\Content;
 
 final class VarTagFactory implements FactoryInterface
 {
@@ -19,10 +20,8 @@ final class VarTagFactory implements FactoryInterface
         ),
     ) {}
 
-    public function create(string $name, string $content, DescriptionParserInterface $descriptions): VarTag
+    public function create(string $name, Content $content, DescriptionParserInterface $descriptions): VarTag
     {
-        $content = StandardTagLexer::new($content);
-
         $type = $content->nextType($name, $this->parser);
         $variable = $content->nextOptionalVariable();
 
