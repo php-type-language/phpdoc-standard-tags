@@ -10,6 +10,11 @@ use TypeLang\PHPDoc\Parser\Description\DescriptionParserInterface;
 use TypeLang\PHPDoc\Tag\Factory\FactoryInterface;
 use TypeLang\PHPDoc\Tag\Content;
 
+/**
+ * This class is responsible for creating "@property" tags.
+ *
+ * See {@see PropertyTag} for details about this tag.
+ */
 class PropertyTagFactory implements FactoryInterface
 {
     public function __construct(

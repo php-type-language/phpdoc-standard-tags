@@ -7,6 +7,11 @@ namespace TypeLang\PHPDoc\Standard;
 use TypeLang\PHPDoc\Parser\Description\DescriptionParserInterface;
 use TypeLang\PHPDoc\Tag\Content;
 
+/**
+ * This class is responsible for creating "@property-read" tags.
+ *
+ * See {@see PropertyReadTag} for details about this tag.
+ */
 class PropertyReadTagFactory extends PropertyTagFactory
 {
     public function create(string $name, Content $content, DescriptionParserInterface $descriptions): PropertyReadTag

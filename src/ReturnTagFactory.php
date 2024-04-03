@@ -10,6 +10,11 @@ use TypeLang\PHPDoc\Parser\Description\DescriptionParserInterface;
 use TypeLang\PHPDoc\Tag\Factory\FactoryInterface;
 use TypeLang\PHPDoc\Tag\Content;
 
+/**
+ * This class is responsible for creating "@return" tags.
+ *
+ * See {@see ReturnTag} for details about this tag.
+ */
 final class ReturnTagFactory implements FactoryInterface
 {
     public function __construct(
