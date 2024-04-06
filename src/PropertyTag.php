@@ -63,13 +63,4 @@ class PropertyTag extends Tag implements
     {
         return $this->variable;
     }
-
-    public function jsonSerialize(): array
-    {
-        return \array_filter([
-            ...parent::jsonSerialize(),
-            'type' => $this->type,
-            'var' => $this->variable,
-        ], static fn(mixed $value): bool => $value !== null);
-    }
 }

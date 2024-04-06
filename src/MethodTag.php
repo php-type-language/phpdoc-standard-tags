@@ -85,13 +85,4 @@ class MethodTag extends Tag implements TypeProviderInterface
     {
         return $this->type->name->toString();
     }
-
-    public function jsonSerialize(): array
-    {
-        return \array_filter([
-            ...parent::jsonSerialize(),
-            'type' => $this->type,
-            'static' => $this->static,
-        ], static fn(mixed $value): bool => $value !== null);
-    }
 }
