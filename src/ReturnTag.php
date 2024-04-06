@@ -50,4 +50,12 @@ class ReturnTag extends Tag implements TypeProviderInterface
     {
         return $this->type;
     }
+
+    public function jsonSerialize(): array
+    {
+        return \array_filter([
+            ...parent::jsonSerialize(),
+            'type' => $this->type,
+        ], static fn(mixed $value): bool => $value !== null);
+    }
 }

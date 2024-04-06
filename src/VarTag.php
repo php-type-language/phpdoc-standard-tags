@@ -55,4 +55,13 @@ class VarTag extends Tag implements
     {
         return $this->varName;
     }
+
+    public function jsonSerialize(): array
+    {
+        return \array_filter([
+            ...parent::jsonSerialize(),
+            'type' => $this->type,
+            'var' => $this->varName,
+        ], static fn(mixed $value): bool => $value !== null);
+    }
 }

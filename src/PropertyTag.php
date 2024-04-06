@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace TypeLang\PHPDoc\Standard;
 
-use phpDocumentor\Reflection\DocBlock\Tags\PropertyWrite;
 use TypeLang\Parser\Node\Stmt\TypeStatement;
 use TypeLang\PHPDoc\Tag\OptionalTypeProviderInterface;
 use TypeLang\PHPDoc\Tag\Tag;
@@ -63,5 +62,14 @@ class PropertyTag extends Tag implements
     public function getVariableName(): string
     {
         return $this->variable;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return \array_filter([
+            ...parent::jsonSerialize(),
+            'type' => $this->type,
+            'var' => $this->variable,
+        ], static fn(mixed $value): bool => $value !== null);
     }
 }
