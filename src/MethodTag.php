@@ -50,7 +50,7 @@ class MethodTag extends Tag implements TypeProviderInterface
         string $name,
         protected readonly CallableTypeNode $type,
         protected readonly bool $static = false,
-        \Stringable|string|null $description = null
+        \Stringable|string|null $description = null,
     ) {
         parent::__construct($name, $description);
     }

@@ -43,7 +43,7 @@ class ParamTag extends Tag implements
         string $name,
         protected readonly ?TypeStatement $type,
         protected readonly string $varName,
-        \Stringable|string|null $description = null
+        \Stringable|string|null $description = null,
     ) {
         parent::__construct($name, $description);
     }

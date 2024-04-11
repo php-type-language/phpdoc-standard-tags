@@ -49,7 +49,7 @@ class PropertyTag extends Tag implements
         string $name,
         protected readonly ?TypeStatement $type,
         protected readonly string $variable,
-        \Stringable|string|null $description = null
+        \Stringable|string|null $description = null,
     ) {
         parent::__construct($name, $description);
     }

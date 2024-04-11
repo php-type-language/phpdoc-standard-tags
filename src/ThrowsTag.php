@@ -36,7 +36,7 @@ class ThrowsTag extends Tag implements TypeProviderInterface
     public function __construct(
         string $name,
         protected readonly TypeStatement $type,
-        \Stringable|string|null $description = null
+        \Stringable|string|null $description = null,
     ) {
         parent::__construct($name, $description);
     }
