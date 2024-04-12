@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace TypeLang\PHPDoc\Standard;
 
+use TypeLang\Parser\Node\Stmt\Callable\ParameterNode;
 use TypeLang\Parser\Node\Stmt\TypeStatement;
 use TypeLang\PHPDoc\Tag\OptionalTypeProviderInterface;
 use TypeLang\PHPDoc\Tag\Tag;
@@ -37,12 +38,10 @@ class ParamTag extends Tag implements
 {
     /**
      * @param non-empty-string $name
-     * @param non-empty-string $varName
      */
     public function __construct(
         string $name,
-        protected readonly ?TypeStatement $type,
-        protected readonly string $varName,
+        protected readonly ParameterNode $param,
         \Stringable|string|null $description = null,
     ) {
         parent::__construct($name, $description);
@@ -50,11 +49,27 @@ class ParamTag extends Tag implements
 
     public function getType(): ?TypeStatement
     {
-        return $this->type;
+        return $this->param->type;
+    }
+
+    public function isVariadic(): bool
+    {
+        return $this->param->variadic;
+    }
+
+    public function isOutput(): bool
+    {
+        return $this->param->output;
     }
 
     public function getVariableName(): string
     {
-        return $this->varName;
+        $node = $this->param->name;
+
+        if ($node === null) {
+            return 'unknown';
+        }
+
+        return $node->getValue();
     }
 }

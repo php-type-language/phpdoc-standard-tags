@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace TypeLang\PHPDoc\Standard;
 
+use TypeLang\Parser\Node\Literal\VariableLiteralNode;
+use TypeLang\Parser\Node\Stmt\Callable\ParameterNode;
 use TypeLang\Parser\Parser as TypesParser;
 use TypeLang\Parser\ParserInterface as TypesParserInterface;
 use TypeLang\PHPDoc\Parser\Description\DescriptionParserInterface;
@@ -21,20 +23,43 @@ final class ParamTagFactory implements FactoryInterface
         private readonly TypesParserInterface $parser = new TypesParser(tolerant: true),
     ) {}
 
+    private function isVariable(string $content): bool
+    {
+        return \str_starts_with($content, '&$')
+            || \str_starts_with($content, '...$')
+            || \str_starts_with($content, '&...$')
+            || \str_starts_with($content, '$');
+    }
+
     public function create(string $name, Content $content, DescriptionParserInterface $descriptions): ParamTag
     {
         $type = null;
+        $output = $variadic = false;
 
-        if (!\str_starts_with($content->value, '$')) {
+        if (!$this->isVariable($content->value)) {
             $type = $content->nextType($name, $this->parser);
+        }
+
+        if (\str_starts_with($content->value, '&')) {
+            $content->shift(1);
+            $output = true;
+        }
+
+        if (\str_starts_with($content->value, '...')) {
+            $content->shift(3);
+            $variadic = true;
         }
 
         $variable = $content->nextVariable($name);
 
         return new ParamTag(
             name: $name,
-            type: $type,
-            varName: $variable,
+            param: new ParameterNode(
+                type: $type,
+                name: new VariableLiteralNode($variable),
+                output: $output,
+                variadic: $variadic,
+            ),
             description: $content->toDescription($descriptions),
         );
     }
