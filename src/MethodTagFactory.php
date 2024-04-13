@@ -20,7 +20,9 @@ final class MethodTagFactory implements FactoryInterface
 {
     public function __construct(
         private readonly TypesParserInterface $parser = new TypesParser(tolerant: true),
-    ) {}
+    ) {
+        assert($this->parser->tolerant, TypesParser::class . ' must be configured as tolerant');
+    }
 
     public function create(string $name, Content $content, DescriptionParserInterface $descriptions): MethodTag
     {

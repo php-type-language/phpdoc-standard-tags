@@ -44,6 +44,8 @@ class ParamTag extends Tag implements
         protected readonly ParameterNode $param,
         \Stringable|string|null $description = null,
     ) {
+        assert($this->param->name !== null, 'Parameter name cannot be empty');
+
         parent::__construct($name, $description);
     }
 

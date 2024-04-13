@@ -26,7 +26,9 @@ final class ThrowsTagFactory implements FactoryInterface
             generics: false,
             list: false,
         ),
-    ) {}
+    ) {
+        assert($this->parser->tolerant, TypesParser::class . ' must be configured as tolerant');
+    }
 
     public function create(string $name, Content $content, DescriptionParserInterface $descriptions): ThrowsTag
     {
