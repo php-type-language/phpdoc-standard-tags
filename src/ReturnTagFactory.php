@@ -19,16 +19,14 @@ final class ReturnTagFactory implements FactoryInterface
 {
     public function __construct(
         private readonly TypesParserInterface $parser = new TypesParser(tolerant: true),
-    ) {
-        assert($this->parser->tolerant, TypesParser::class . ' must be configured as tolerant');
-    }
+    ) {}
 
     public function create(string $name, Content $content, DescriptionParserInterface $descriptions): ReturnTag
     {
         return new ReturnTag(
             name: $name,
             type: $content->nextType($name, $this->parser),
-            description: $content->toDescription($descriptions),
+            description: $content->toOptionalDescription($descriptions),
         );
     }
 }

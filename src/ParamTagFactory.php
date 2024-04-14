@@ -21,9 +21,7 @@ final class ParamTagFactory implements FactoryInterface
 {
     public function __construct(
         private readonly TypesParserInterface $parser = new TypesParser(tolerant: true),
-    ) {
-        assert($this->parser->tolerant, TypesParser::class . ' must be configured as tolerant');
-    }
+    ) {}
 
     private function isVariable(string $content): bool
     {
@@ -62,7 +60,7 @@ final class ParamTagFactory implements FactoryInterface
                 output: $output,
                 variadic: $variadic,
             ),
-            description: $content->toDescription($descriptions),
+            description: $content->toOptionalDescription($descriptions),
         );
     }
 }
