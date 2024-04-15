@@ -33,7 +33,9 @@ final class ThrowsTagFactory implements FactoryInterface
         return new ThrowsTag(
             name: $name,
             type: $content->nextType($name, $this->parser),
-            description: \trim($content->value) === '' ? null : $content->toDescription($descriptions),
+            description: \trim($content->value) !== ''
+                ? $descriptions->parse(\rtrim($content->value))
+                : null,
         );
     }
 }

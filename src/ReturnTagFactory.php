@@ -26,7 +26,9 @@ final class ReturnTagFactory implements FactoryInterface
         return new ReturnTag(
             name: $name,
             type: $content->nextType($name, $this->parser),
-            description: \trim($content->value) === '' ? null : $content->toDescription($descriptions),
+            description: \trim($content->value) !== ''
+                ? $descriptions->parse(\rtrim($content->value))
+                : null,
         );
     }
 }

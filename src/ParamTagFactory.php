@@ -60,7 +60,9 @@ final class ParamTagFactory implements FactoryInterface
                 output: $output,
                 variadic: $variadic,
             ),
-            description: \trim($content->value) === '' ? null : $content->toDescription($descriptions),
+            description: \trim($content->value) !== ''
+                ? $descriptions->parse(\rtrim($content->value))
+                : null,
         );
     }
 }

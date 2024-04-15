@@ -35,7 +35,9 @@ final class PropertyTagFactory implements FactoryInterface
             name: $name,
             type: $type,
             variable: $variable,
-            description: \trim($content->value) === '' ? null : $content->toDescription($descriptions),
+            description: \trim($content->value) !== ''
+                ? $descriptions->parse(\rtrim($content->value))
+                : null,
         );
     }
 }
