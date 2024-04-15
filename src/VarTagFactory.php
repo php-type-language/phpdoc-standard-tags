@@ -30,7 +30,7 @@ final class VarTagFactory implements FactoryInterface
             name: $name,
             type: $type,
             varName: $variable,
-            description: $content->toOptionalDescription($descriptions),
+            description: \trim($content->value) === '' ? null : $content->toDescription($descriptions),
         );
     }
 }

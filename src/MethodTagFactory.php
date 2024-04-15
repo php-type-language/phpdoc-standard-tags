@@ -58,7 +58,7 @@ final class MethodTagFactory implements FactoryInterface
             name: $name,
             type: $callableType,
             static: $isStatic,
-            description: $content->toOptionalDescription($descriptions),
+            description: \trim($content->value) === '' ? null : $content->toDescription($descriptions),
         );
     }
 }
