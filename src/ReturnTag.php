@@ -30,6 +30,7 @@ use TypeLang\PHPDoc\Tag\TypeProviderInterface;
  * structural elements of type method or function.
  *
  * ```
+ *
  * * @return [<Type>] [<description>]
  * ```
  */

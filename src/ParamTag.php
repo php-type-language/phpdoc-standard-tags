@@ -29,6 +29,7 @@ use TypeLang\PHPDoc\Tag\VariableNameProviderInterface;
  * limited to structural elements of type method or function.
  *
  * ```
+ *
  * * @param [<Type>] $<name> [<description>]
  * ```
  */
