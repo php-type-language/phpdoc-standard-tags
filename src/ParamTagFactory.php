@@ -56,7 +56,7 @@ final class ParamTagFactory implements FactoryInterface
             name: $name,
             param: new ParameterNode(
                 type: $type,
-                name: new VariableLiteralNode($variable),
+                name: new VariableLiteralNode('$' . $variable),
                 output: $output,
                 variadic: $variadic,
             ),
