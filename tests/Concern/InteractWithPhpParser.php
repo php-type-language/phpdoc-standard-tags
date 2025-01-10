@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @mixin TestCase
- * @psalm-require-extends TestCase
+ * @phpstan-require-extends TestCase
  */
 trait InteractWithPhpParser
 {
